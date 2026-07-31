@@ -1,0 +1,34 @@
+model,organization,date,year,domain,parameters,training_flop,country,category,estimated_fields
+AlexNet,University of Toronto,2012-09-30,2012,Vision,60000000,4.7e+17,Canada,landmark,
+ResNet-152,Microsoft,2015-12-10,2015,Vision,60000000,2.3e+19,USA,landmark,
+Transformer,Google,2017-06-12,2017,Language,213000000,7.3e+18,USA,landmark,
+AlphaGo Zero,DeepMind,2017-10-18,2017,Games,,3.4e+23,USA,frontier,
+BERT-Large,Google,2018-10-11,2018,Language,340000000,2.9e+21,USA,landmark,
+GPT-2,OpenAI,2019-02-14,2019,Language,1500000000,1.5e+21,USA,landmark,
+Megatron-LM,NVIDIA,2019-09-17,2019,Language,8300000000,9.1e+21,USA,landmark,
+GPT-3 175B,OpenAI,2020-05-28,2020,Language,175000000000,3.14e+23,USA,frontier,
+Megatron-Turing NLG,Microsoft,2021-10-11,2021,Language,530000000000,1.4e+24,USA,frontier,
+Gopher,DeepMind,2021-12-08,2021,Language,280000000000,5.76e+23,USA,frontier,
+Chinchilla,DeepMind,2022-03-29,2022,Language,70000000000,5.76e+23,USA,landmark,
+PaLM 540B,Google,2022-04-04,2022,Language,540000000000,2.53e+24,USA,frontier,
+GPT-4,OpenAI,2023-03-14,2023,Language,,2.1e+25,USA,frontier,
+PaLM 2,Google,2023-05-10,2023,Language,,7.34e+24,USA,frontier,
+Claude 2,Anthropic,2023-07-11,2023,Language,,3.87e+24,USA,frontier,
+Falcon-180B,Technology Innovation Institute,2023-09-06,2023,Language,180000000000,3.76e+24,UAE,frontier,
+Mistral 7B,Mistral AI,2023-09-27,2023,Language,7300000000,3.5e+23,France,efficient,training_flop
+Gemini 1.0 Ultra,Google DeepMind,2023-12-06,2023,Multimodal,,5e+25,USA,frontier,
+Phi-2,Microsoft,2023-12-12,2023,Language,2700000000,2.3e+22,USA,efficient,training_flop
+Gemma 2B,Google,2024-02-21,2024,Language,2000000000,3.6e+22,USA,efficient,training_flop
+Phi-3-mini,Microsoft,2024-04-23,2024,Language,3800000000,7.5e+22,USA,efficient,training_flop
+Nemotron-4 340B,NVIDIA,2024-06-14,2024,Language,340000000000,1.8e+25,USA,frontier,
+Claude 3.5 Sonnet,Anthropic,2024-06-20,2024,Language,,2.7e+25,USA,frontier,
+Llama 3.1-405B,Meta AI,2024-07-23,2024,Language,405000000000,3.8e+25,USA,frontier,
+Grok-2,xAI,2024-08-13,2024,Language,,2.96e+25,USA,frontier,
+Llama 3.2 1B,Meta AI,2024-09-25,2024,Language,1000000000,5.4e+22,USA,efficient,training_flop
+Llama 3.2 3B,Meta AI,2024-09-25,2024,Language,3000000000,1.6e+23,USA,efficient,training_flop
+Grok 3,xAI,2025-02-17,2025,Language,,3.5e+26,USA,frontier,
+Phi-4-mini,Microsoft,2025-02-26,2025,Language,3800000000,1.1e+23,USA,efficient,training_flop
+GPT-4.5,OpenAI,2025-02-27,2025,Language,,3.8e+26,USA,frontier,
+Gemma 3 1B,Google,2025-03-12,2025,Language,1000000000,1.2e+22,USA,efficient,training_flop
+Llama 4 Behemoth,Meta AI,2025-04-05,2025,Multimodal,2000000000000,5.18e+25,USA,frontier,parameters
+Grok 4,xAI,2025-07-09,2025,Language,,5e+26,USA,frontier,

@@ -1,0 +1,40 @@
+// Notable and frontier AI models, 2012-2025. Used by scenes 1, 3 and 4.
+// Source: Epoch AI, Notable/Frontier AI Models dataset (CC-BY).
+// flopEst / paramsEst = true means the value is an estimate: small-model compute from C = 6*N*D, 
+// and Llama 4's size from Meta's stated ~2T total params.
+
+const MODEL_DATA = [
+  { "model": "AlexNet", "org": "University of Toronto", "date": "2012-09-30", "year": 2012, "domain": "Vision", "params": 60000000, "flop": 4.7e+17, "country": "Canada", "category": "landmark", "flopEst": false, "paramsEst": false },
+  { "model": "ResNet-152", "org": "Microsoft", "date": "2015-12-10", "year": 2015, "domain": "Vision", "params": 60000000, "flop": 2.3e+19, "country": "USA", "category": "landmark", "flopEst": false, "paramsEst": false },
+  { "model": "Transformer", "org": "Google", "date": "2017-06-12", "year": 2017, "domain": "Language", "params": 213000000, "flop": 7.3e+18, "country": "USA", "category": "landmark", "flopEst": false, "paramsEst": false },
+  { "model": "AlphaGo Zero", "org": "DeepMind", "date": "2017-10-18", "year": 2017, "domain": "Games", "params": null, "flop": 3.4e+23, "country": "USA", "category": "frontier", "flopEst": false, "paramsEst": false },
+  { "model": "BERT-Large", "org": "Google", "date": "2018-10-11", "year": 2018, "domain": "Language", "params": 340000000, "flop": 2.9e+21, "country": "USA", "category": "landmark", "flopEst": false, "paramsEst": false },
+  { "model": "GPT-2", "org": "OpenAI", "date": "2019-02-14", "year": 2019, "domain": "Language", "params": 1500000000, "flop": 1.5e+21, "country": "USA", "category": "landmark", "flopEst": false, "paramsEst": false },
+  { "model": "Megatron-LM", "org": "NVIDIA", "date": "2019-09-17", "year": 2019, "domain": "Language", "params": 8300000000, "flop": 9.1e+21, "country": "USA", "category": "landmark", "flopEst": false, "paramsEst": false },
+  { "model": "GPT-3 175B", "org": "OpenAI", "date": "2020-05-28", "year": 2020, "domain": "Language", "params": 175000000000, "flop": 3.14e+23, "country": "USA", "category": "frontier", "flopEst": false, "paramsEst": false },
+  { "model": "Megatron-Turing NLG", "org": "Microsoft", "date": "2021-10-11", "year": 2021, "domain": "Language", "params": 530000000000, "flop": 1.4e+24, "country": "USA", "category": "frontier", "flopEst": false, "paramsEst": false },
+  { "model": "Gopher", "org": "DeepMind", "date": "2021-12-08", "year": 2021, "domain": "Language", "params": 280000000000, "flop": 5.76e+23, "country": "USA", "category": "frontier", "flopEst": false, "paramsEst": false },
+  { "model": "Chinchilla", "org": "DeepMind", "date": "2022-03-29", "year": 2022, "domain": "Language", "params": 70000000000, "flop": 5.76e+23, "country": "USA", "category": "landmark", "flopEst": false, "paramsEst": false },
+  { "model": "PaLM 540B", "org": "Google", "date": "2022-04-04", "year": 2022, "domain": "Language", "params": 540000000000, "flop": 2.53e+24, "country": "USA", "category": "frontier", "flopEst": false, "paramsEst": false },
+  { "model": "GPT-4", "org": "OpenAI", "date": "2023-03-14", "year": 2023, "domain": "Language", "params": null, "flop": 2.1e+25, "country": "USA", "category": "frontier", "flopEst": false, "paramsEst": false },
+  { "model": "PaLM 2", "org": "Google", "date": "2023-05-10", "year": 2023, "domain": "Language", "params": null, "flop": 7.34e+24, "country": "USA", "category": "frontier", "flopEst": false, "paramsEst": false },
+  { "model": "Claude 2", "org": "Anthropic", "date": "2023-07-11", "year": 2023, "domain": "Language", "params": null, "flop": 3.87e+24, "country": "USA", "category": "frontier", "flopEst": false, "paramsEst": false },
+  { "model": "Falcon-180B", "org": "Technology Innovation Institute", "date": "2023-09-06", "year": 2023, "domain": "Language", "params": 180000000000, "flop": 3.76e+24, "country": "UAE", "category": "frontier", "flopEst": false, "paramsEst": false },
+  { "model": "Mistral 7B", "org": "Mistral AI", "date": "2023-09-27", "year": 2023, "domain": "Language", "params": 7300000000, "flop": 3.5e+23, "country": "France", "category": "efficient", "flopEst": true, "paramsEst": false },
+  { "model": "Gemini 1.0 Ultra", "org": "Google DeepMind", "date": "2023-12-06", "year": 2023, "domain": "Multimodal", "params": null, "flop": 5e+25, "country": "USA", "category": "frontier", "flopEst": false, "paramsEst": false },
+  { "model": "Phi-2", "org": "Microsoft", "date": "2023-12-12", "year": 2023, "domain": "Language", "params": 2700000000, "flop": 2.3e+22, "country": "USA", "category": "efficient", "flopEst": true, "paramsEst": false },
+  { "model": "Gemma 2B", "org": "Google", "date": "2024-02-21", "year": 2024, "domain": "Language", "params": 2000000000, "flop": 3.6e+22, "country": "USA", "category": "efficient", "flopEst": true, "paramsEst": false },
+  { "model": "Phi-3-mini", "org": "Microsoft", "date": "2024-04-23", "year": 2024, "domain": "Language", "params": 3800000000, "flop": 7.5e+22, "country": "USA", "category": "efficient", "flopEst": true, "paramsEst": false },
+  { "model": "Nemotron-4 340B", "org": "NVIDIA", "date": "2024-06-14", "year": 2024, "domain": "Language", "params": 340000000000, "flop": 1.8e+25, "country": "USA", "category": "frontier", "flopEst": false, "paramsEst": false },
+  { "model": "Claude 3.5 Sonnet", "org": "Anthropic", "date": "2024-06-20", "year": 2024, "domain": "Language", "params": null, "flop": 2.7e+25, "country": "USA", "category": "frontier", "flopEst": false, "paramsEst": false },
+  { "model": "Llama 3.1-405B", "org": "Meta AI", "date": "2024-07-23", "year": 2024, "domain": "Language", "params": 405000000000, "flop": 3.8e+25, "country": "USA", "category": "frontier", "flopEst": false, "paramsEst": false },
+  { "model": "Grok-2", "org": "xAI", "date": "2024-08-13", "year": 2024, "domain": "Language", "params": null, "flop": 2.96e+25, "country": "USA", "category": "frontier", "flopEst": false, "paramsEst": false },
+  { "model": "Llama 3.2 1B", "org": "Meta AI", "date": "2024-09-25", "year": 2024, "domain": "Language", "params": 1000000000, "flop": 5.4e+22, "country": "USA", "category": "efficient", "flopEst": true, "paramsEst": false },
+  { "model": "Llama 3.2 3B", "org": "Meta AI", "date": "2024-09-25", "year": 2024, "domain": "Language", "params": 3000000000, "flop": 1.6e+23, "country": "USA", "category": "efficient", "flopEst": true, "paramsEst": false },
+  { "model": "Grok 3", "org": "xAI", "date": "2025-02-17", "year": 2025, "domain": "Language", "params": null, "flop": 3.5e+26, "country": "USA", "category": "frontier", "flopEst": false, "paramsEst": false },
+  { "model": "Phi-4-mini", "org": "Microsoft", "date": "2025-02-26", "year": 2025, "domain": "Language", "params": 3800000000, "flop": 1.1e+23, "country": "USA", "category": "efficient", "flopEst": true, "paramsEst": false },
+  { "model": "GPT-4.5", "org": "OpenAI", "date": "2025-02-27", "year": 2025, "domain": "Language", "params": null, "flop": 3.8e+26, "country": "USA", "category": "frontier", "flopEst": false, "paramsEst": false },
+  { "model": "Gemma 3 1B", "org": "Google", "date": "2025-03-12", "year": 2025, "domain": "Language", "params": 1000000000, "flop": 1.2e+22, "country": "USA", "category": "efficient", "flopEst": true, "paramsEst": false },
+  { "model": "Llama 4 Behemoth", "org": "Meta AI", "date": "2025-04-05", "year": 2025, "domain": "Multimodal", "params": 2000000000000, "flop": 5.18e+25, "country": "USA", "category": "frontier", "flopEst": false, "paramsEst": true },
+  { "model": "Grok 4", "org": "xAI", "date": "2025-07-09", "year": 2025, "domain": "Language", "params": null, "flop": 5e+26, "country": "USA", "category": "frontier", "flopEst": false, "paramsEst": false }
+];

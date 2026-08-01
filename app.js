@@ -385,10 +385,15 @@ const SCENES = [
     const sel = state.orgFilter &&
       pts.filter(orgMatch).sort((a, b) => b.flop - a.flop)[0];
     if(sel){
+      const markX = x(sel.dt), markY = yFlop(sel.flop);
+      // For the marks near the very top, place the note to its left.
+      const nearTop = markY < 45;
       drawAnnotations(g, [{
         title: `${state.orgFilter}'s frontier`,
         label: `${sel.model} — ${fmtFlop(sel.flop)}`,
-        x: x(sel.dt), y: yFlop(sel.flop), dx: -120, dy: -30
+        x: markX, y: markY,
+        dx: nearTop ? -150 : -120,
+        dy: nearTop ? 0 : -30
       }]);
     } else {
       cornerNote(g, 'A widening race',
@@ -403,7 +408,7 @@ const SCENES = [
   title: 'More Compute, More Capability',
   sub: "First, does training compute actually buy performance? Each dot is a model: X = training compute, Y = its capability score (Epoch Capabilities Index, a single number stitched across many benchmarks). The two rise together — a strong correlation (r ≈ 0.87). Compute isn't capability, but it's a good proxy for it.",
   hint: 'X = Training Compute (FLOP, log), Y = Capability (ECI). Click a company chip to highlight it; hover any dot for details.',
-  src: 'Data: Epoch AI — ECI Benchmarks + Notable & Frontier AI Models (CC-BY). Capability = Epoch Capabilities Index (IRT fit, anchored Claude 3.5 Sonnet = 130); training-compute values are order-of-magnitude estimates.',
+  src: 'Data: Epoch AI — ECI Benchmarks + Notable & Frontier AI Models (CC-BY). Capability = Epoch Capabilities Index (IRT fit, anchored Claude 3.5 Sonnet = 130); training-compute values are order-of-magnitude estimates. This scene covers only models benchmarked by Epoch — a different set from the other scenes.',
   filters: true,
   data: () => ECI_DATA,
   render(g){
@@ -526,21 +531,24 @@ const SCENES = [
       const p0 = onDevice(gS), p1 = onDevice(gMid);
 
       const greenHead = defineArrowhead(g, C.zone);
-      drawArrow(g, p0, p1, C.zone, greenHead)
-        .attr('opacity', 0).transition().delay(650).duration(500).attr('opacity', .9);
-
+      const greenArrow = drawArrow(g, p0, p1, C.zone, greenHead);
       const label = textBlock(g, (p0[0] + p1[0]) / 2, (p0[1] + p1[1]) / 2 + 24,
-        'New Wave', ['Memory-Efficient Models'], 'end').attr('opacity', 0);
-      label.transition().delay(950).duration(500).attr('opacity', 1);   
+        'New Wave', ['Memory-Efficient Models'], 'end');
+      if(sceneEntry){   
+        greenArrow.attr('opacity', 0).transition().delay(650).duration(500).attr('opacity', .9);
+        label.attr('opacity', 0).transition().delay(950).duration(500).attr('opacity', 1);
+      }
     }
 
     drawDots(g, pts, d => x(d.dt), d => yParam(d.params), categoryFill);
 
-    // Animation for the green (efficient) dots
-    g.selectAll('.dot').filter(isEfficient)
-      .attr('opacity', 0).attr('r', 0)
-      .transition().delay((d, i) => 150 + i * 70).duration(450)
-      .attr('r', DOT_R).attr('opacity', dotOpacity);
+    // Green dots animation (only on scene entry)
+    if(sceneEntry){
+      g.selectAll('.dot').filter(isEfficient)
+        .attr('opacity', 0).attr('r', 0)
+        .transition().delay((d, i) => 150 + i * 70).duration(450)
+        .attr('r', DOT_R).attr('opacity', dotOpacity);
+    }
 
     attachTooltip(g.selectAll('.dot'), tipModel);
     drawCategoryLegend(g);
@@ -585,6 +593,9 @@ function renderFilters(){
     });
 }
 
+// True only on the render triggered by entering a scene
+let sceneEntry = true;
+
 function render(){
   const sc = SCENES[state.scene];
   d3.select('#sceneTitle').text(sc.title);
@@ -597,6 +608,7 @@ function render(){
   renderSteps();
   renderFilters();
   sc.render(freshCanvas());
+  sceneEntry = false;   // consumed; later re-renders in the same scene are static
 }
 
 // Changing scene clears the company highlight
@@ -604,6 +616,7 @@ function goToScene(i){
   if(i < 0 || i >= SCENES.length || i === state.scene) return;
   state.scene = i;
   state.orgFilter = null;
+  sceneEntry = true;    // this render is a scene entry -> allow entry animations
   render();
 }
 
